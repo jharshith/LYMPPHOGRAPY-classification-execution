@@ -1,1 +1,1 @@
-# LYMPPHOGRAPY-classification-execution
+# Lymphography-Classification-Tool

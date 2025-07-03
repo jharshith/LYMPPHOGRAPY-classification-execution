@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Lymphography Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Welcome to the Lymphography Classifier</h1>
+        <div class="info-box">
+            
+            <p>Lymphography classification is a complex and critical task in medical diagnostics. It involves analyzing lymphographic images to identify potential abnormalities. This application aims to streamline and improve the accuracy of this process, providing valuable support to healthcare professionals.</p>
+            <button class="get-started" onclick="window.location.href='{{ url_for('form_page') }}'">Get Started</button>
+        </div>
+    </div>
+</body>
+</html>

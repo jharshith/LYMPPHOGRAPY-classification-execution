@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lymphography Classifier Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="form-body">
+    <div class="container">
+        <h1 class="title">Lymphography Classifier Form</h1>
+        <div class="form-container" id="form-container">
+            <form action="/predict" method="post" onsubmit="showPrediction(event)">
+                {% set fields = [
+                    ('lymphatics', 'Lymphatics (normal(1), arched(2), deformed(3), displaced(4))'),
+                    ('block_of_affere', 'Block of afferent (no(1), yes(2))'),
+                    ('bl_of_lymph_c', 'Block of lymph. c (no(1), yes(2))'),
+                    ('bl_of_lymph_s', 'Block of lymph. s (no(1), yes(2))'),
+                    ('by_pass', 'Bypass (no(1), yes(2))'),
+                    ('extravasates', 'Extravasates (no(1), yes(2))'),
+                    ('regeneration_of', 'Regeneration of (no(1), yes(2))'),
+                    ('early_uptake_in', 'Early uptake in (no(1), yes(2))'),
+                    ('lym_nodes_dimin', 'Lym. nodes dimin. (0-3)'),
+                    ('lym_nodes_enlar', 'Lym. nodes enlar. (1-4)'),
+                    ('changes_in_lym', 'Changes in lym. (bean(1), oval(2), round(3))'),
+                    ('defect_in_node', 'Defect in node (no(1), lacunar(2), lac. marginal(3), lac. central(4))'),
+                    ('changes_in_node', 'Changes in node (no(1), lacunar(2), lac. margin(3), lac. central(4))'),
+                    ('changes_in_stru', 'Changes in structure (no(1), grainy(2), drop-like(3), coarse(4), diluted(5), reticular(6), stripped(7), faint(8))'),
+                    ('special_forms', 'Special forms (no(1), chalices(2), vesicles(3))'),
+                    ('dislocation_of', 'Dislocation of (no(1), yes(2))'),
+                    ('exclusion_of_no', 'Exclusion of node (no(1), yes(2))'),
+                    ('no_of_nodes_in', 'Number of nodes in (0-9, 10-19, 20-29, 30-39, 40-49, 50-59, 60-69, >=70)')
+                ] %}
+                {% for col, label in fields %}
+                    <label for="{{ col }}" class="form-label">{{ label }}:</label>
+                    <input type="text" id="{{ col }}" name="{{ col }}" class="form-input" required><br><br>
+                {% endfor %}
+                <input type="submit" value="Classify" class="form-submit">
+            </form>
+        </div>
+        <div class="prediction-container" id="prediction-container" style="display: none;">
+            {% if prediction %}
+                <h2 class="prediction">Prediction: {{ prediction }}</h2>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function showPrediction(event) {
+            event.preventDefault();
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('prediction-container').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
