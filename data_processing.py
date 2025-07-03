@@ -20,7 +20,7 @@ from sklearn.preprocessing import LabelEncoder
 warnings.filterwarnings('ignore')
 
 # Load the data
-data_file_path = '.\data\lymphography.data'
+data_file_path = 'lymphography.data'
 data = pd.read_csv(data_file_path, header=None)
 
 print("Given data")
