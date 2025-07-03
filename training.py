@@ -19,7 +19,7 @@ from sklearn.preprocessing import LabelEncoder
 warnings.filterwarnings('ignore')
 
 # Load the data
-data_file_path = './data/lymphography.data'
+data_file_path = 'lymphography.data'
 data = pd.read_csv(data_file_path, header=None)
 
 # Assign column names to the DataFrame
@@ -94,7 +94,7 @@ def train_gradient_boosting(X_train, y_train, X_test, y_test):
 
 if __name__ == "__main__":
     # File paths
-    data_file = './data/lymphography.data'
+    data_file = 'lymphography.data'
 
     # Load and preprocess data
     X_train, X_test, y_train, y_test, label_encoder = load_and_preprocess_data(data_file)
