@@ -3,7 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load the data
-data_file_path = '.\data\lymphography.data'
+data_file_path = 'lymphography.data'
 data = pd.read_csv(data_file_path, header=None)
 
 # Assign column names to the DataFrame
